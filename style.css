@@ -1,0 +1,696 @@
+
+/* =========================
+   1. GLOBAL STYLING
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #ffe4ec,
+        #f3e5ff,
+        #e8eaff
+    );
+    color: #56344f;
+    overflow-x: hidden;
+}
+
+/* =========================
+   2. HERO SECTION
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.subtitle {
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: #a45d91;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    color: #a34e83;
+    line-height: 1.2;
+    animation: fadeIn 2s ease;
+}
+
+.hero h1 span {
+    display: block;
+    color: #cc79a8;
+}
+
+.hero-text {
+    max-width: 500px;
+    margin: 25px 0;
+    line-height: 1.9;
+    color: #76566f;
+}
+
+/* =========================
+   3. BUTTONS
+========================= */
+
+button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #e88fbd, #a77bce);
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(174, 104, 161, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(174, 104, 161, 0.45);
+}
+
+/* =========================
+   4. MESSAGE SECTION
+========================= */
+
+.message {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 70px 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(150, 100, 150, 0.1);
+}
+
+.message h2,
+.memories h2,
+.final-wish h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #aa6396;
+    margin-bottom: 25px;
+}
+
+.message p {
+    line-height: 2;
+    font-size: 16px;
+    color: #75546e;
+}
+
+/* =========================
+   5. PHOTO GALLERY
+========================= */
+
+.memories {
+    padding: 90px 7%;
+    text-align: center;
+}
+
+.gallery {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border: 8px solid white;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(120, 70, 110, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.gallery img:hover {
+    transform: translateY(-10px) rotate(2deg) scale(1.03);
+}
+
+/* =========================
+   6. FINAL WISH
+========================= */
+
+.final-wish {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.final-wish p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+#wishMessage {
+    margin-top: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #a34e83;
+}
+
+/* =========================
+   7. FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #986b91;
+    font-size: 14px;
+}
+
+/* =========================
+   8. ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   9. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .gallery img {
+        height: 220px;
+    }
+
+    .message {
+        margin: 30px 15px;
+        padding: 45px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+
+
+
+/* Floating hearts */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Confetti */
+
+.confetti {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    z-index: 2000;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Disabled button */
+
+button:disabled {
+    opacity: 0.8;
+    cursor: default;
+}
+
+
+/* =========================
+   MUSIC PLAYER
+========================= */
+
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3000;
+    padding: 12px 18px;
+    font-size: 13px;
+}
+
+/* =========================
+   LETTER SECTION
+========================= */
+
+.letter-section {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.letter-instruction {
+    margin-bottom: 45px;
+}
+
+.envelope-container {
+    width: 280px;
+    height: 190px;
+    position: relative;
+    margin: 50px auto 35px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #d88bb8;
+    border-radius: 10px;
+}
+
+.letter-paper {
+    position: absolute;
+    width: 90%;
+    height: 170px;
+    left: 5%;
+    top: 5px;
+    padding: 15px;
+    background: #fffdf5;
+    border-radius: 8px;
+    z-index: 2;
+    transition: transform 0.8s ease;
+    overflow-y: auto;
+    text-align: left;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.letter-paper h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: #a34e83;
+    margin-bottom: 8px;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 110px solid #c76f9f;
+    transform-origin: top;
+    transition: transform 0.7s ease;
+    z-index: 4;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #edb2d1;
+    clip-path: polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.envelope-heart {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    z-index: 5;
+    transition: opacity 0.3s;
+}
+
+.envelope-container.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-container.open .letter-paper {
+    transform: translateY(-145px);
+    z-index: 6;
+}
+
+.envelope-container.open .envelope-heart {
+    opacity: 0;
+}
+
+/* =========================
+   MEMORY GALLERY
+========================= */
+
+.memory-intro {
+    margin-bottom: 30px;
+}
+
+.memory-card {
+    background: white;
+    padding: 12px 12px 22px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(120, 70, 110, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.memory-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.memory-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.memory-card:hover {
+    transform: translateY(-12px) rotate(0deg) scale(1.03);
+}
+
+.memory-card img {
+    display: block;
+}
+
+.memory-card p {
+    margin-top: 14px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 21px;
+    color: #a34e83;
+}
+
+/* =========================
+   CAKE SECTION
+========================= */
+
+.cake-section {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.cake-section > p {
+    margin-bottom: 20px;
+}
+
+.cake {
+    width: 260px;
+    height: 260px;
+    margin: 50px auto 30px;
+    position: relative;
+}
+
+.cake-bottom {
+    position: absolute;
+    width: 240px;
+    height: 85px;
+    background: #d982b0;
+    border-radius: 12px 12px 25px 25px;
+    bottom: 35px;
+    left: 10px;
+}
+
+.cake-middle {
+    position: absolute;
+    width: 200px;
+    height: 55px;
+    background: #f6b6d1;
+    border-radius: 12px;
+    bottom: 115px;
+    left: 30px;
+}
+
+.cake-top {
+    position: absolute;
+    width: 160px;
+    height: 35px;
+    background: #fff0f6;
+    border-radius: 50%;
+    bottom: 155px;
+    left: 50px;
+    border-bottom: 8px solid #e99abb;
+}
+
+.cake-plate {
+    position: absolute;
+    width: 270px;
+    height: 18px;
+    background: #c6a3d5;
+    border-radius: 50%;
+    bottom: 22px;
+    left: -5px;
+}
+
+.candles {
+    position: absolute;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+    bottom: 185px;
+    z-index: 2;
+}
+
+.candle {
+    width: 12px;
+    height: 55px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff 0px,
+        #fff 5px,
+        #e99ac2 5px,
+        #e99ac2 10px
+    );
+    border-radius: 4px;
+    position: relative;
+}
+
+.flame {
+    position: absolute;
+    width: 16px;
+    height: 23px;
+    background: #ffb52e;
+    border-radius: 50% 50% 50% 50%;
+    top: -24px;
+    left: -2px;
+    box-shadow: 0 0 18px #ffbd4a;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    from {
+        transform: scale(1) rotate(-5deg);
+    }
+    to {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+.cake.blown .flame {
+    display: none;
+}
+
+#cakeMessage {
+    margin-top: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #a34e83;
+}
+
+@media (max-width: 480px) {
+    .music-btn {
+        top: 10px;
+        right: 10px;
+        padding: 10px 13px;
+    }
+
+    .envelope-container {
+        transform: scale(0.9);
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+
+    .cake {
+        transform: scale(0.9);
+    }
+}
+
+
+/* =========================
+   SECRET WELCOME SCREEN
+========================= */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 25px;
+
+    background:
+        radial-gradient(circle at top left, #714b7f, transparent 45%),
+        radial-gradient(circle at bottom right, #70466e, transparent 45%),
+        linear-gradient(135deg, #24172f, #3d2447, #251a3c);
+
+    z-index: 5000;
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.welcome-content {
+    max-width: 550px;
+    animation: welcomeAppear 1.5s ease;
+}
+
+.welcome-icon {
+    font-size: 75px;
+    margin-bottom: 25px;
+    animation: heartBeat 2s infinite;
+}
+
+.welcome-subtitle {
+    color: #e7b9d9;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.welcome-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 9vw, 5rem);
+    color: #fff0f8;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.welcome-content h1 span {
+    display: block;
+    color: #eab4dc;
+}
+
+.welcome-description {
+    color: #e5cce5;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+.welcome-content button {
+    padding: 16px 35px;
+    background: linear-gradient(135deg, #e88fbd, #a77bce);
+    box-shadow: 0 0 25px rgba(232, 143, 189, 0.4);
+}
+
+.welcome-footer {
+    color: #d9b9db;
+    margin-top: 35px;
+    font-size: 13px;
+}
+
+/* Hide the screen after unlocking */
+
+.welcome-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Entrance animation */
+
+@keyframes welcomeAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Heart animation */
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
